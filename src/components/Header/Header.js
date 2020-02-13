@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#get-photos">Puppies</Nav.Link>
-    <Nav.Link href="#liked-photos">Liked Photos</Nav.Link>
+    <Nav.Link href="#liked-photos">Favorites</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
