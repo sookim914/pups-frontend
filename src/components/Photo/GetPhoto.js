@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import Img from 'react-image'
 import Button from 'react-bootstrap/Button'
+import apiUrl from '../../apiConfig'
 
 const imgStyle = {
   display: 'block',
@@ -48,6 +49,20 @@ const GetPhoto = ({ user, match, alert, history }) => {
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }
 
+  const likeThisOne = (event, url) => {
+    event.persist()
+    axios({
+      url: `${apiUrl}/liked-photos`,
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      },
+      data: { 'photo': { 'url': photo } }
+    })
+      .then(() => alert({ heading: 'Success', message: 'Saved to your favorites!', variant: 'success' }))
+      .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
+  }
+
   if (!photo) {
     return <p>Loading...</p>
   }
@@ -55,7 +70,7 @@ const GetPhoto = ({ user, match, alert, history }) => {
   return (
     <Fragment>
       <div style={buttonStyle}>
-        <Button style={button} variant='danger'> Like </Button>
+        <Button style={button} onClick= {(photo) => likeThisOne(photo)} ariant='danger'> Like </Button>
         <Button style={button} variant='secondary' onClick={() => nextOne()}>Next</Button>
       </div>
       <Img src={photo} style={imgStyle}/>
