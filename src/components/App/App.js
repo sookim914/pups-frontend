@@ -8,7 +8,7 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
-import GetPhotos from '../Photo/GetPhotos'
+import GetPhoto from '../Photo/GetPhoto'
 import LikedPhotos from '../Photo/LikedPhotos'
 
 class App extends Component {
@@ -56,7 +56,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/get-photos' render={(props) => (<GetPhotos {...props} alert={this.alert} user={user}/>)} />
+          <AuthenticatedRoute user={user} exact path='/get-photos' render={(props) => (<GetPhoto {...props} alert={this.alert} user={user}/>)} />
           <AuthenticatedRoute user={user} exact path='/liked-photos' render={(props) => (<LikedPhotos {...props} alert={this.alert} user={user}/>)} />
         </main>
       </Fragment>
