@@ -20,7 +20,8 @@ const buttonStyle = {
 }
 
 const button = {
-  margin: '5px'
+  margin: '5px',
+  fontFamily: 'Delius'
 }
 
 const GetPhoto = ({ user, match, alert, history }) => {
@@ -70,7 +71,7 @@ const GetPhoto = ({ user, match, alert, history }) => {
   return (
     <Fragment>
       <div style={buttonStyle}>
-        <Button style={button} onClick= {(photo) => likeThisOne(photo)} ariant='danger'> Like </Button>
+        <Button style={button} onClick= {(photo) => likeThisOne(photo)} variant='success'> Like </Button>
         <Button style={button} variant='secondary' onClick={() => nextOne()}>Next</Button>
       </div>
       <Img src={photo} style={imgStyle}/>
