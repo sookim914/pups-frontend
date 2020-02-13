@@ -93,7 +93,7 @@ class SignUp extends Component {
               />
             </Form.Group>
             <Button
-              variant="info"
+              variant="warning"
               type="submit"
             >
               Submit
