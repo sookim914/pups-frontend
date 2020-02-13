@@ -38,14 +38,14 @@ const unauthenticatedOptions = (
 // )
 
 const Header = ({ user }) => (
-  <Navbar bg="light" variant="dark" expand="md">
+  <Navbar style={{ backgroundColor: '#E4E3E2' }} variant="dark" expand="md">
     <Navbar.Brand href="#" style={title}>
       PUPS <Emoji size={50} text=':paw_prints:'/>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
+    <Navbar.Collapse style={{ color: '343a40' }} id="basic-navbar-nav">
       <Nav style={font} className="ml-auto">
-        { user && <span className="navbar-text mr-2">Wuff, {user.email}</span>}
+        { user && <span style={font} className="navbar-text mr-2">Wuff, {user.email}</span>}
         { user ? authenticatedOptions : unauthenticatedOptions }
       </Nav>
     </Navbar.Collapse>

@@ -5,6 +5,7 @@ import Img from 'react-image'
 import Button from 'react-bootstrap/Button'
 import apiUrl from '../../apiConfig'
 
+// img size and display styling
 const imgStyle = {
   display: 'block',
   marginLeft: 'auto',
@@ -14,11 +15,13 @@ const imgStyle = {
   maxHeight: '60vh'
 }
 
+// keep buttons in the center
 const buttonStyle = {
   textAlign: 'center',
   marginTop: '3%'
 }
 
+// buttons margin
 const button = {
   margin: '5px',
   fontFamily: 'Delius'
@@ -27,14 +30,17 @@ const button = {
 const GetPhoto = ({ user, match, alert, history }) => {
   const [photo, setphoto] = useState([''])
 
+  // axios API call to DOG API to get random photo
   useEffect(() => {
     axios({
       method: 'GET',
       url: 'https://dog.ceo/api/breeds/image/random'
     })
+      // set photo with array returned from res
       .then(res => {
         setphoto(res.data.message)
       })
+      // catch any error
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }, [])
 
@@ -71,7 +77,7 @@ const GetPhoto = ({ user, match, alert, history }) => {
   return (
     <Fragment>
       <div style={buttonStyle}>
-        <Button style={button} onClick= {(photo) => likeThisOne(photo)} variant='success'> Like </Button>
+        <Button style={button} onClick= {(photo) => likeThisOne(photo)} variant='warning'> Like </Button>
         <Button style={button} variant='secondary' onClick={() => nextOne()}>Next</Button>
       </div>
       <Img src={photo} style={imgStyle}/>
