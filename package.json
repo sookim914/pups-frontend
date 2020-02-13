@@ -1,6 +1,6 @@
 {
   "name": "pups-frontend",
-  "homepage": "https://sookim914.github.io/pups",
+  "homepage": "https://sookim914.github.io/pups-frontend",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
