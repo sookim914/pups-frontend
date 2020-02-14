@@ -15,6 +15,13 @@ const font = {
   color: '#343a40'
 }
 
+const username = {
+  fontFamily: 'Delius Unicase',
+  fontSize: '16px',
+  color: '#343a40',
+  fontWeight: 'bold'
+}
+
 const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#get-photos" style={font}>Puppies</Nav.Link>
@@ -45,7 +52,7 @@ const Header = ({ user }) => (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse style={{ color: '343a40' }} id="basic-navbar-nav">
       <Nav style={font} className="ml-auto">
-        { user && <span style={font} className="navbar-text mr-2">Wuff, {user.email}</span>}
+        { user && <span style={username} className="navbar-text mr-2"><Emoji text=':dog:'/> Wuff, {user.email}</span>}
         { user ? authenticatedOptions : unauthenticatedOptions }
       </Nav>
     </Navbar.Collapse>

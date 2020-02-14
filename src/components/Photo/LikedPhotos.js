@@ -24,6 +24,7 @@ const font = {
 const LikedPhotos = ({ user, match, alert, history }) => {
   const [likedPhotos, setlikedPhotos] = useState([])
 
+  // API request to get all the photos that belong to the user
   useEffect(() => {
     axios({
       method: 'GET',
@@ -38,6 +39,7 @@ const LikedPhotos = ({ user, match, alert, history }) => {
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }, [])
 
+  // API request to delete the photo
   const destroy = (id) => {
     event.preventDefault()
     axios({
@@ -55,10 +57,7 @@ const LikedPhotos = ({ user, match, alert, history }) => {
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }
 
-  if (!likedPhotos) {
-    return <p>Loading...</p>
-  }
-
+  // display photos and each photo has a button (remove button)
   const photosJsx = likedPhotos.map(photo => (
     <div key={photo._id} style={divStyle} >
       <Img style={imgSize} src={photo.url} />

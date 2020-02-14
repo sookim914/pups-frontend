@@ -30,13 +30,13 @@ const button = {
 const GetPhoto = ({ user, match, alert, history }) => {
   const [photo, setphoto] = useState([''])
 
-  // axios API call to DOG API to get random photo
+  // axios API call to DOG API to get random puppy photo
   useEffect(() => {
     axios({
       method: 'GET',
       url: 'https://dog.ceo/api/breeds/image/random'
     })
-      // set photo with array returned from res
+      // change state of photo with array returned from res
       .then(res => {
         setphoto(res.data.message)
       })
@@ -44,6 +44,7 @@ const GetPhoto = ({ user, match, alert, history }) => {
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }, [])
 
+  // API GET quest to get the next photo
   const nextOne = () => {
     event.preventDefault()
     axios({
@@ -56,6 +57,7 @@ const GetPhoto = ({ user, match, alert, history }) => {
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }
 
+  // API POST request to save the photo as favorite
   const likeThisOne = (event, url) => {
     event.persist()
     axios({
@@ -70,10 +72,8 @@ const GetPhoto = ({ user, match, alert, history }) => {
       .catch(() => alert({ heading: 'Rut roh', message: 'Something went wrong', variant: 'danger' }))
   }
 
-  if (!photo) {
-    return <p>Loading...</p>
-  }
-
+  // Like button and Next buttonå
+  // display the photo using Img tag
   return (
     <Fragment>
       <div style={buttonStyle}>
